@@ -5,7 +5,7 @@ class Habitaciones
   private $propiedad_id;
   private $descripcion;
 
-  function __construct(argument)
+  function __construct()
   {
   }
   public function getId(){
@@ -27,8 +27,4 @@ class Habitaciones
     $this->descripcion = $descripcion;
   }
 }
-
-
-
-
 ?>
