@@ -9,6 +9,7 @@ class Propietario
   private $telefono;
   private $clave;
   private $email;
+  private $estado;
 
   function __construct()
   {
@@ -68,7 +69,15 @@ class Propietario
   public function setClave($clave){
     $this->clave = $clave;
   }
-  
+
+  public fuction getEstado(){
+    return $this->estado;
+}
+
+public function setEstado($estado){
+    $this->estado = $estado;
+}
+
 }
 
 
