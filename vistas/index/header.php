@@ -3,14 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/estilos.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-
-    <script src="../js/jquery.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../css/estilos.css">
+    <link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+    <script src="../../lib/js/jquery.js"></script>
+    <script src="../../lib/bootstrap/bootstrap.min.js"></script>
     <title></title>
   </head>
-    <div class="jumbotron">
+    <!--<div class="jumbotron">
       <div class="container text-center">
         <h1>Portal de arriendos</h1>
         <p>Mission, Vission & Values</p>
@@ -41,4 +40,4 @@
           </ul>
         </div>
       </div>
-    </nav>
+    </nav>-->

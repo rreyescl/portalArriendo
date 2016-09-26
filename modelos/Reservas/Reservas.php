@@ -2,7 +2,7 @@
 /**
 *
 */
-class ClassName extends AnotherClass
+class Reservas
 {
   private $id;
   private $id_arrendatario;
@@ -10,7 +10,7 @@ class ClassName extends AnotherClass
   private $desde;
   private $hasta;
 
-  function __construct(argument)
+  function __construct()
   {
 
   }
