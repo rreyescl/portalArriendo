@@ -1,8 +1,6 @@
 <?php
 include "header.php";
-include "../../modelos/Conexion/Conexion.php";
-$objConectar = new Conexion();
-//$objConectar->conectar();
+
 
 
 ?>

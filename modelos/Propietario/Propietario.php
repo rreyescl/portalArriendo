@@ -1,6 +1,9 @@
 <?php
 
-class Propietario
+require_once "../../Portal.php";
+
+
+class Propietario extends Portal
 {
     private $id;
     private $rut;
@@ -10,7 +13,6 @@ class Propietario
     private $clave;
     private $email;
     private $estado;
-
 
     function __construct()
     {
@@ -96,6 +98,42 @@ class Propietario
     {
         $this->estado = $estado;
         return $this;
+    }
+
+    public function validaPropietario()
+    {
+        $respuesta = false;
+        $conn = $this->getConexion();
+        $sql = "select rut,clave from propietario where rut='" . $this->rut . "' and clave = '" . $this->clave . "' limit 0,1";
+
+        $rs = mysqli_query($conn,$sql,MYSQLI_STORE_RESULT);
+        while ($row = mysqli_fetch_array($rs)) {
+            $respuesta = true;
+        }
+        return $respuesta;
+    }
+
+    public function cargarPropietario()
+    {
+        $objPropietario = "";
+
+        $conn = $this->getConexion();
+        $sql = "select id,rut,nombre,apellido,telefono,clave,email,estado 
+        from propietario
+        where rut='".$this->rut."'";
+
+        $rs = mysqli_query($conn, $sql,MYSQLI_STORE_RESULT);
+        while ($row = mysqli_fetch_array($rs)) {
+            $objPropietario = new Propietario();
+            $objPropietario->setId($row['id']);
+            $objPropietario->setRut($row['rut']);
+            $objPropietario->setNombre($row['nombre']);
+            $objPropietario->setApellido($row['apellido']);
+            $objPropietario->setTelefono($row['telefono']);
+            $objPropietario->setEmail($row['email']);
+            $objPropietario->setEstado($row['estado']);
+        }
+        return $objPropietario;
     }
 }
 
