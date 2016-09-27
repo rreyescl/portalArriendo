@@ -2,7 +2,6 @@
 
 require_once"../../modelos/Propietario/Propietario.php";
 
-
 $accion = "login";
 $rut ="18.117.358-0";
 $clave ="asdf";

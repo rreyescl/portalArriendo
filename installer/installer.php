@@ -100,7 +100,6 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-
 for ($i = 0; $i < count($sql); $i++) {
     if (mysqli_query($conn, $sql[$i])) {
         echo "Tabla creadas satisfactoriamente <br>";
