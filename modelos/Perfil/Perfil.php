@@ -38,6 +38,15 @@ class Perfil
     
     public function getPerfiles(){
         $conn = Portal::getConexion();
+        $sql = "select id_perfil, perfil from perfil order by id desc";
+        $rs = mysqli_query($conn,$sql);
+        $arraylistPerfiles = null;
+        while($row = mysqli_fetch_array($rs,MYSQL_BOTH)){
+            $objPerfiles = new Perfil();
+            $objPerfiles->setId($row['id_perfil']);
+            $objPerfiles->setPerfil($row['perfil']);
+            $arraylistPerfiles[] = $objPerfiles;
+        }
     }
 
 }
