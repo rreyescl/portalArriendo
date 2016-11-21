@@ -32,11 +32,11 @@ include "header.php";
 
 <div class="container-fluid text-center">
     <div class="row content">
-       <!-- <div class="col-sm-2 sidenav">
-            <p><a href="#">Link</a></p>
-            <p><a href="#">Link</a></p>
-            <p><a href="#">Link</a></p>
-        </div>-->
+        <!-- <div class="col-sm-2 sidenav">
+             <p><a href="#">Link</a></p>
+             <p><a href="#">Link</a></p>
+             <p><a href="#">Link</a></p>
+         </div>-->
         <div class="col-sm-12 text-left">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
@@ -87,7 +87,7 @@ include "header.php";
         </div>-->
     </div>
 
-    <!-- Modal -->
+    <!-- Modal LOGIN-->
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
 
@@ -98,7 +98,8 @@ include "header.php";
                     <h4 class="modal-title">Iniciar Sesión</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" method="post" action="../../controllers/">
+                    <form class="form-horizontal" method="post" action="../../controllers/login/LoginController.php">
+                        <input type="hidden" name="accion" value="login"/>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="rut">Rut:</label>
                             <div class="col-sm-10">
@@ -112,9 +113,11 @@ include "header.php";
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-default">Iniciar Sesión</button>
-                        <button class="btn btn-default">Registrar</button>
+
                     </form>
+                    <button type="submit" class="btn btn-default">Iniciar Sesión</button>
+                    <button class="btn btn-default" data-toggle="modal" data-target="#myModalRegister">Registrar
+                    </button>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -124,6 +127,86 @@ include "header.php";
         </div>
     </div>
 
+    <!-- modal register -->
+    <div class="modal fade" id="myModalRegister" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Formulario de registro</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" method="post"
+                          action="../../controllers/login/LoginController.php.php">
+                        <input type="hidden" name="accion" value="register"/>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="nombre">Nombre:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="nombre" name="nombre">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="apellido">Apellido:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="apellido" name="apellido">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="rut">Telefono:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="telefono" name="telefono">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="rut">Email:</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="email" name="email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="rut">Clave:</label>
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" id="clave" name="clave">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="rut">Pregunta secreta:</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="pregSecreta" id="pregSecreta">
+                                    <option value="-1">Seleccione pregunta...</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="respuesta">Respuesta:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="respuesta" name="respuesta">
+                            </div>
+                        </div>
+                        <label class="control-label col-sm-2" for="rut">Perfil:</label>
+                        <div class="col-sm-10">
+                            <div class="radio">
+                                <label><input type="radio" name="radioPerfil">Propietario</label>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="radioPerfil">Arrendatario</label>
+                            </div>
+                        </div>
+
+                </div>
+<hr>
+                <button type="submit" class="btn btn-default">Guardar</button>
+                <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 </div>
 
 <footer class="container-fluid text-center">
