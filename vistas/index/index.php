@@ -23,7 +23,7 @@ include "header.php";
                 <li><a href="#">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" data-toggle="modal" data-target="#myModal"><span
+                <li><a href="#" data-toggle="modal" data-target="#myModal" style="background-color:  orange;color:white"><span
                             class="glyphicon glyphicon-log-in"></span> Iniciar Sesión</a></li>
             </ul>
         </div>
@@ -50,20 +50,24 @@ include "header.php";
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        <img src="img_chania.jpg" alt="Chania">
+                    <center>
+                        <img width="640px" height="480px" src="../../img/Arriendo-departamento-Vina-con-piscina-cerca-playa-sector-Mall_1.jpg" alt="Chania">
+                        </center>
+                    </div>
+                    <div class="item">
+                    <center>
+                        <img width="640px" height="480px" src="../../img/vendo-departamento-vina-del-mar-renaca-espectacular-vista-mar-4-dormitorios-2-estacionamientos--14478994103.jpg" alt="Chania">
+                        </center>
+                    </div>
+                    <div class="item">
+                    <center>                    
+                        <img width="640px" height="480px" src="../../img/original_11111.jpg" alt="Flower">
+                        </center>
                     </div>
 
-                    <div class="item">
-                        <img src="img_chania2.jpg" alt="Chania">
-                    </div>
-
-                    <div class="item">
-                        <img src="img_flower.jpg" alt="Flower">
-                    </div>
-
-                    <div class="item">
+<!--                    <div class="item">
                         <img src="img_flower2.jpg" alt="Flower">
-                    </div>
+                    </div>-->
                 </div>
 
                 <!-- Left and right controls -->
@@ -115,7 +119,7 @@ include "header.php";
 
 
                     </form>
-                    <button type="submit" class="btn btn-default">Iniciar Sesión</button>
+                    <button type="submit" class="btn btn-default" >Iniciar Sesión</button>
                     <button class="btn btn-default" data-toggle="modal" data-target="#myModalRegister">Registrar
                     </button>
                 </div>
