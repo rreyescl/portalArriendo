@@ -37,6 +37,7 @@ class Perfil
     }
     
     public function getPerfiles(){
+        //asdjkasjkdhasjkdhasjkd
         $conn = Portal::getConexion();
         $sql = "select id_perfil, perfil from perfil order by id desc";
         $rs = mysqli_query($conn,$sql);
