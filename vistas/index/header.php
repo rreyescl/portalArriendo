@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
     <script src="../../lib/js/jquery.js"></script>
     <script src="../../lib/bootstrap/bootstrap.min.js"></script>
+    <script src="../../js/validaciones.js"></script>
     <style>
       /* Remove the navbar's default margin-bottom and rounded borders */
       .navbar {

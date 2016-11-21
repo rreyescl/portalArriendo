@@ -103,13 +103,13 @@ include "header.php";
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="rut">Rut:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="rut" name="rut">
+                                <input type="text" class="form-control" id="loginRut" name="loginRut">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="pwd">Clave:</label>
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" id="pwd" name="pwd">
+                                <input type="password" class="form-control" id="loginPwd" name="loginPwd">
                             </div>
                         </div>
 
@@ -120,7 +120,7 @@ include "header.php";
                     </button>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
 
@@ -143,37 +143,37 @@ include "header.php";
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="nombre">Nombre:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="nombre" name="nombre">
+                                <input type="text" class="form-control" id="registerNombre" name="registerNombre">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="apellido">Apellido:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="apellido" name="apellido">
+                                <input type="text" class="form-control" id="registerApellido" name="registerApellido">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-2" for="rut">Telefono:</label>
+                            <label class="control-label col-sm-2" for="telefono">Telefono:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="telefono" name="telefono">
+                                <input type="text" class="form-control" id="registerTelefono" name="registerTelefono">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-sm-2" for="rut">Email:</label>
+                            <label class="control-label col-sm-2" for="email">Email:</label>
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" id="email" name="email">
+                                <input type="email" class="form-control" id="registerEmail" name="registerEmail">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="rut">Clave:</label>
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" id="clave" name="clave">
+                                <input type="password" class="form-control" id="registerClave" name="registerClave">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="rut">Pregunta secreta:</label>
                             <div class="col-sm-10">
-                                <select class="form-control" name="pregSecreta" id="pregSecreta">
+                                <select class="form-control" name="registerPregSecreta" id="registerPregSecreta">
                                     <option value="-1">Seleccione pregunta...</option>
                                 </select>
                             </div>
@@ -181,27 +181,30 @@ include "header.php";
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="respuesta">Respuesta:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="respuesta" name="respuesta">
+                                <input type="text" class="form-control" id="registerRespuesta" name="registerRespuesta">
                             </div>
                         </div>
                         <label class="control-label col-sm-2" for="rut">Perfil:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-5">
                             <div class="radio">
-                                <label><input type="radio" name="radioPerfil">Propietario</label>
-                            </div>
-                            <div class="radio">
-                                <label><input type="radio" name="radioPerfil">Arrendatario</label>
-                            </div>
+                                <label><input type="radio" name="registerRadioPerfil" value="2"/>Propietario</label>
+                            </div>                            
                         </div>
-
-                </div>
-<hr>
-                <button type="submit" class="btn btn-default">Guardar</button>
-                <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <div class="col-sm-5">
+                            <div class="radio">
+                                <label><input type="radio" name="registerRadioPerfil" value="3"/>Arrendatario</label>
+                            </div>
+                        </div>                               
                 </form>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </div>
+                <br />
+                <div class="modal-footer">                
+                    <button type="button" class="btn btn-default">Guardar</button>
+                    <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </div>
+                <!--<div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>-->
             </div>
         </div>
     </div>
@@ -212,7 +215,6 @@ include "header.php";
 <footer class="container-fluid text-center">
     <p>Footer Text</p>
 </footer>
-
 </body>
 </html>
 

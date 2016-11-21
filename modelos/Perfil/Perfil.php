@@ -1,11 +1,6 @@
 <?php
+require_once "../../Portal.php";
 
-/**
- * Created by PhpStorm.
- * User: RicardoReyes
- * Date: 06/11/2016
- * Time: 18:51
- */
 class Perfil
 {
     private $id;
@@ -39,6 +34,10 @@ class Perfil
     {
         $this->perfil = $perfil;
 
+    }
+    
+    public function getPerfiles(){
+        $conn = Portal::getConexion();
     }
 
 }

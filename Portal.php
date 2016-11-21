@@ -12,7 +12,7 @@ class Portal
 
     }
 
-    public function getConexion()
+    public static function getConexion()
     {
         $conn = new Conexion();
         return $conn->conectar();
