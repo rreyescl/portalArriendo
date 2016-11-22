@@ -1,11 +1,13 @@
 <?php
-include "../../modelos/Propietario/Propietario.php";
+
 include "../index/header.php";
+
+
 
 session_start();
 
 
-$objPropietario = $_SESSION['propietario'];
+$objPropietario = $_SESSION['usuario'];
 echo "<pre>";
 print_r($objPropietario);
 echo "</pre>";
@@ -48,9 +50,9 @@ if(!isset($objPropietario)){
 </nav>
 
 <div class="container">
-    <h3>Collapsible Navbar</h3>
+    <!--<h3>Collapsible Navbar</h3>
     <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right corner (try to re-size this window).
-    <p>Only when the button is clicked, the navigation bar will be displayed.</p>
+    <p>Only when the button is clicked, the navigation bar will be displayed.</p>-->
 </div>
 
 
