@@ -45,7 +45,7 @@ include "header.php";
 				</ol>
 				<div class="carousel-inner">
 					<div class="item active">
-						<img alt="Carousel Bootstrap First" src="http://www.hectour.cl/wp-content/uploads/2015/02/vina2.png" />
+						<img width="1600px" height="500px" alt="Carousel Bootstrap First" src="http://www.hectour.cl/wp-content/uploads/2015/02/vina2.png" />
 						<div class="carousel-caption">
 							<h4>
 								First Thumbnail label
@@ -56,7 +56,7 @@ include "header.php";
 						</div>
 					</div>
 					<div class="item">
-						<img alt="Carousel Bootstrap Second" src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg" />
+						<img width="1600px" height="500px" alt="Carousel Bootstrap Second" src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg" />
 						<div class="carousel-caption">
 							<h4>
 								Second Thumbnail label
@@ -67,7 +67,7 @@ include "header.php";
 						</div>
 					</div>
 					<div class="item">
-						<img alt="Carousel Bootstrap Third" src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg" />
+						<img width="1600px" height="500px" alt="Carousel Bootstrap Third" src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg" />
 						<div class="carousel-caption">
 							<h4>
 								Third Thumbnail label
