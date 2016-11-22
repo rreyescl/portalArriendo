@@ -12,7 +12,7 @@ echo "<pre>";
 print_r($objPropietario);
 echo "</pre>";
 if(!isset($objPropietario)){
-    header("location:  ../index/index.php");
+    //header("location:  ../index/index.php");
 }
 ?>
 
