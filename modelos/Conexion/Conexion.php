@@ -5,36 +5,26 @@ class Conexion
 {
     private $servidor = "localhost";
     private $usuario = "root";
-    private $clave = "asdf1234";
+    private $clave = "";
     private $bd = "portalArriendo";
 
-    /**
-     * @return string
-     */
     public function getServidor()
     {
         return $this->servidor;
     }
 
-    /**
-     * @return string
-     */
     public function getUsuario()
     {
         return $this->usuario;
     }
 
-    /**
-     * @return string
-     */
+    
     public function getClave()
     {
         return $this->clave;
     }
 
-    /**
-     * @return string
-     */
+    
     public function getBd()
     {
         return $this->bd;
