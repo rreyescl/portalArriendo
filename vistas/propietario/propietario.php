@@ -80,9 +80,16 @@ include "header.php";
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-sm-2" for="tarifa">Cantidad de baños:</label>
+                                        <label class="control-label col-sm-2" for="tarifa">Baños:</label>
                                         <div class="col-sm-10">
                                             <input type="number" class="form-control" id="guardarBanos" name="guardarBanos">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="tarifa">Habitaciones:</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="guadarHabitaciones" name="guadarHabitaciones">
                                         </div>
                                     </div>
                                     <div class="form-group">

@@ -20,7 +20,7 @@ switch ($accion) {
             $objUsuario = $objUsuario->load($rut);
             session_start();
             $_SESSION['usuario'] = $objUsuario;
-            print_r($objUsuario);
+            //print_r($objUsuario);
             $perfil = $objUsuario->getIdPerfil();
 
             if ($perfil == 1) {
