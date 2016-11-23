@@ -102,7 +102,7 @@ include "header.php";
                     <h4 class="modal-title">Iniciar Sesión</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" method="post" action="../../controllers/login/LoginController.php">
+                    <form id="loginForm" class="form-horizontal" method="post" action="../../controllers/usuario/UsuarioController.php">
                         <input type="hidden" name="accion" value="login"/>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="rut">Rut:</label>
@@ -119,7 +119,7 @@ include "header.php";
 
 
                     </form>
-                    <button type="submit" class="btn btn-default" >Iniciar Sesión</button>
+                    <button type="button" class="btn btn-default" onclick="javascript:validarLogin()">Iniciar Sesión</button>
                     <button class="btn btn-default" data-toggle="modal" data-target="#myModalRegister">Registrar
                     </button>
                 </div>
@@ -141,9 +141,14 @@ include "header.php";
                     <h4 class="modal-title">Formulario de registro</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" method="post"
-                          action="../../controllers/login/LoginController.php.php">
+                    <form id="registerForm" class="form-horizontal" method="post" action="../../controllers/usuario/UsuarioController.php">
                         <input type="hidden" name="accion" value="register"/>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="rut">Rut:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="registerRut" name="registerRut">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="nombre">Nombre:</label>
                             <div class="col-sm-10">
@@ -203,7 +208,7 @@ include "header.php";
                 </div>
                 <br />
                 <div class="modal-footer">                
-                    <button type="button" class="btn btn-default">Guardar</button>
+                    <button type="button" class="btn btn-default" onclick="javascript:validarRegistro()">Guardar</button>
                     <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
                 </div>
                 <!--<div class="modal-footer">

@@ -9,23 +9,7 @@
     <script src="../../lib/bootstrap/bootstrap.min.js"></script>
     <script src="../../js/validaciones.js"></script>
     <script>
-    function cargarFrame(id){
-        var titulo = "";
-        switch(id){
-           case 'mispropiedades':
-            titulo ="Mis Propiedades";
-            break;
-           case 'mispublicaciones':
-           titulo = "Mis Publicaciones";
-           break;
-           case 'micuenta':
-           titulo = "Mi Cuenta";
-           break;
-           default:
-           break; 
-        }
-        document.getElementById("titulo").textContent = titulo;
-    }
+   
     </script>
     
     <style>

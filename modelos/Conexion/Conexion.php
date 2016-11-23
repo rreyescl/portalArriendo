@@ -5,7 +5,7 @@ class Conexion
 {
     private $servidor = "localhost";
     private $usuario = "root";
-    private $clave = "";
+    private $clave = "asdf1234";
     private $bd = "portalArriendo";
 
     /**
