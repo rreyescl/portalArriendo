@@ -1,7 +1,5 @@
 <?php
-/**
-*
-*/
+require_once "../../Portal.php";
 class Propiedades
 {
   private $id;
@@ -86,8 +84,15 @@ class Propiedades
       $arraylist[] = $objPropiedades;
     }
     return $arraylist;
-
-
+  }
+  
+  public function save(){
+    $conn = Portal::getConexion();
+    $sql = "insert into propiedades values (0,".$this->propietario_id.",'".$this->direccion."','".$this->descripcion."',".$this->tarifa.",".$this->comuna_id.",".$this->cantidad_baños.",".$this->cantidad_habitaciones.")";
+   // echo $sql;
+    mysqli_query($conn,$sql);
+    
+    return mysqli_insert_id($conn);
   }
 }
 ?>

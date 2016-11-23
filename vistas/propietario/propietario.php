@@ -59,7 +59,7 @@ include "header.php";
                                 <h4 class="modal-title">Agregar propiedad</h4>
                             </div>
                             <div class="modal-body">
-                                <form id="agregarPropiedadForm" class="form-horizontal" method="post" action="../../controllers/propiedades/PropiedadController.php">
+                                <form id="agregarPropiedadForm" class="form-horizontal" method="post" action="../../controllers/propiedades/PropiedadesController.php" enctype="multipart/form-data">
                                     <input type="hidden" name="accion" value="guardarPropiedad"/>
                                     <div class="form-group">
                                         <label class="control-label col-sm-2" for="direccion">Dirección:</label>

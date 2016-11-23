@@ -45,3 +45,7 @@ function agregarFotos(){
     contenido += "<br><input type='file' class='form-control' id='foto' name='foto[]'>";
     document.getElementById("fotos").innerHTML=contenido;
 }
+
+function guardarPropiedad(){
+    document.getElementById("agregarPropiedadForm").submit();
+}

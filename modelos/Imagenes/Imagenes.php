@@ -1,11 +1,6 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: RicardoReyes
- * Date: 06/11/2016
- * Time: 19:14
- */
+require_once "../../Portal.php";
 class Imagenes
 {
     private $id_img;
@@ -58,6 +53,13 @@ class Imagenes
     public function setPropiedadId($propiedad_id)
     {
         $this->propiedad_id = $propiedad_id;
+    }
+    
+    public function save(){
+        $conn = Portal::getConexion();
+        $sql = "insert into imagenes values (0,'".$this->ruta."',".$this->propiedad_id.")";
+        echo $sql;
+        mysqli_query($conn,$sql);        
     }
 
     
