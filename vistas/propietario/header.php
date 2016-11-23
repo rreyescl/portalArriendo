@@ -20,7 +20,7 @@ print_r($objPropietario);
 echo "</pre>";*/
 $_SESSION['cargado'] = true;
 if(!isset($objPropietario)){
-    header("location:  ../index/index.php");
+    //header("location:  ../index/index.php");
 }
 ?>
 <nav class="navbar navbar-inverse">

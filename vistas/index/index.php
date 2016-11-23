@@ -32,63 +32,55 @@ include "header.php";
 
 <div class="container-fluid text-center">
     <div class="row content">
-        <!-- <div class="col-sm-2 sidenav">
-             <p><a href="#">Link</a></p>
-             <p><a href="#">Link</a></p>
-             <p><a href="#">Link</a></p>
-         </div>-->
-        <div class="col-sm-12 text-left">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                    <li data-target="#myCarousel" data-slide-to="3"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                    <center>
-                        <img width="640px" height="480px" src="../../img/Arriendo-departamento-Vina-con-piscina-cerca-playa-sector-Mall_1.jpg" alt="Chania">
-                        </center>
-                    </div>
-                    <div class="item">
-                    <center>
-                        <img width="640px" height="480px" src="../../img/vendo-departamento-vina-del-mar-renaca-espectacular-vista-mar-4-dormitorios-2-estacionamientos--14478994103.jpg" alt="Chania">
-                        </center>
-                    </div>
-                    <div class="item">
-                    <center>                    
-                        <img width="640px" height="480px" src="../../img/original_11111.jpg" alt="Flower">
-                        </center>
-                    </div>
-
-<!--                    <div class="item">
-                        <img src="img_flower2.jpg" alt="Flower">
-                    </div>-->
-                </div>
-
-                <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-        <!--<div class="col-sm-2 sidenav">
-            <div class="well">
-                <p>ADS</p>
-            </div>
-            <div class="well">
-                <p>ADS</p>
-            </div>
-        </div>-->
+        <div class="row">
+		<div class="col-md-12">
+			<div class="carousel slide" id="carousel-777712">
+				<ol class="carousel-indicators">
+					<li class="active" data-slide-to="0" data-target="#carousel-777712">
+					</li>
+					<li data-slide-to="1" data-target="#carousel-777712">
+					</li>
+					<li data-slide-to="2" data-target="#carousel-777712">
+					</li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="item active">
+						<img width="1600px" height="500px" alt="Carousel Bootstrap First" src="http://www.hectour.cl/wp-content/uploads/2015/02/vina2.png" />
+						<div class="carousel-caption">
+							<h4>
+								First Thumbnail label
+							</h4>
+							<p>
+								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+							</p>
+						</div>
+					</div>
+					<div class="item">
+						<img width="1600px" height="500px" alt="Carousel Bootstrap Second" src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg" />
+						<div class="carousel-caption">
+							<h4>
+								Second Thumbnail label
+							</h4>
+							<p>
+								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+							</p>
+						</div>
+					</div>
+					<div class="item">
+						<img width="1600px" height="500px" alt="Carousel Bootstrap Third" src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg" />
+						<div class="carousel-caption">
+							<h4>
+								Third Thumbnail label
+							</h4>
+							<p>
+								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+							</p>
+						</div>
+					</div>
+				</div> <a class="left carousel-control" href="#carousel-777712" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-777712" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+			</div>
+		</div>
+	</div>
     </div>
 
     <!-- Modal LOGIN-->
