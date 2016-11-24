@@ -19,6 +19,8 @@ function cargarFrame(id) {
             document.getElementById("propiedades").style.display = "none";
             document.getElementById("publicaciones").style.display = "none";
             break;
+        case 'misarriendos':
+            document.getElementById("arriendos").style.display = "block";
         default:
             break;
     }

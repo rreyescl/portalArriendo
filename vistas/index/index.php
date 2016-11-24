@@ -1,6 +1,8 @@
 <?php
 include "header.php";
 
+include "../../modelos/Imagenes/Imagenes.php";
+
 
 ?>
 <body>
@@ -13,14 +15,12 @@ include "header.php";
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Logo</a>
+            <a class="navbar-brand" href="/portalArriendo/portalArriendo/index.php">Inicio</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
+                <li class="active"><a href="../publicaciones/">Publicaciones</a></li>
+                <li><a href="#">Contactenos</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#" data-toggle="modal" data-target="#myModal" style="background-color:  orange;color:white"><span
@@ -44,6 +44,29 @@ include "header.php";
 					</li>
 				</ol>
 				<div class="carousel-inner">
+                    <?php
+                    $i=0;
+                    foreach (Imagenes::getUltimasTresImagenes() as $objImagen){
+                        $active ="";
+                        if($i==0){
+                            $active ="active";
+                        }?>
+                        <div class="item <?php $active?>">
+                            <img width="1600px" height="500px" alt="Carousel Bootstrap First" src="<?php echo $objImagen->getRuta()?>" />
+                            <div class="carousel-caption">
+                                <h4>
+                                    First Thumbnail label
+                                </h4>
+                                <p>
+                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                </p>
+                            </div>
+                        </div>
+                    <?php
+                        $i++;
+                    }
+
+                    ?>
 					<div class="item active">
 						<img width="1600px" height="500px" alt="Carousel Bootstrap First" src="http://www.hectour.cl/wp-content/uploads/2015/02/vina2.png" />
 						<div class="carousel-caption">
@@ -55,7 +78,7 @@ include "header.php";
 							</p>
 						</div>
 					</div>
-					<div class="item">
+                        <!--<div class="item">
 						<img width="1600px" height="500px" alt="Carousel Bootstrap Second" src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg" />
 						<div class="carousel-caption">
 							<h4>
@@ -65,8 +88,8 @@ include "header.php";
 								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
 							</p>
 						</div>
-					</div>
-					<div class="item">
+					</div>-->
+					<!--<div class="item">
 						<img width="1600px" height="500px" alt="Carousel Bootstrap Third" src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg" />
 						<div class="carousel-caption">
 							<h4>
@@ -76,7 +99,7 @@ include "header.php";
 								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
 							</p>
 						</div>
-					</div>
+					</div>-->
 				</div> <a class="left carousel-control" href="#carousel-777712" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-777712" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 			</div>
 		</div>
@@ -171,20 +194,7 @@ include "header.php";
                                 <input type="password" class="form-control" id="registerClave" name="registerClave">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" for="rut">Pregunta secreta:</label>
-                            <div class="col-sm-10">
-                                <select class="form-control" name="registerPregSecreta" id="registerPregSecreta">
-                                    <option value="-1">Seleccione pregunta...</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" for="respuesta">Respuesta:</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="registerRespuesta" name="registerRespuesta">
-                            </div>
-                        </div>
+
                         <label class="control-label col-sm-2" for="rut">Perfil:</label>
                         <div class="col-sm-5">
                             <div class="radio">

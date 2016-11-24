@@ -14,12 +14,12 @@
 include "../../modelos/Usuario/Usuario.php";
 session_start();
 
-$objPropietario = $_SESSION['usuario'];
+$objArrendatario = $_SESSION['usuario'];
 /*echo "<pre>";
-print_r($objPropietario);
+print_r($objArrendatario);
 echo "</pre>";*/
 $_SESSION['cargado'] = true;
-if(!isset($objPropietario)){
+if(!isset($objArrendatario)){
     //header("location:  ../index/index.php");
 }
 ?>
@@ -42,7 +42,7 @@ if(!isset($objPropietario)){
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#" style="background-color:  orange;color:white"><span
-                            class="glyphicon glyphicon-user"></span> <?php echo $objPropietario->getNombre()." ".$objPropietario->getApellido() ?></a></li>
+                            class="glyphicon glyphicon-user"></span> <?php echo $objArrendatario->getNombre()." ".$objArrendatario->getApellido() ?></a></li>
                 <li><a href="../../controllers/usuario/UsuarioController.php?accion=logout"  style="background-color:  orange;color:white"><span
                             class="glyphicon glyphicon-log-out"></span> Salir</a></li>
             </ul>

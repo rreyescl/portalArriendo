@@ -206,10 +206,10 @@ class Usuario
         } else {
             $sql = "insert into usuario ";
             $sql .= "(rut,nombre,apellido,telefono,";
-            $sql .= "clave,email,pregunta_secreta_id,respuesta,";
+            $sql .= "clave,email,";
             $sql .= "id_perfil,estado) values ";
             $sql .= "('" . $this->rut . "','" . $this->nombre . "','" . $this->apellido . "','" . $this->telefono . "',";
-            $sql .= "'" . $this->clave . "','" . $this->email . "'," . $this->preguntaSecretaId . ",'" . $this->respuestaSecreta . "',";
+            $sql .= "'" . $this->clave . "','" . $this->email . "',";
             $sql .= $this->id_perfil . "," . $this->estado . ")";
         }
         //echo $sql;

@@ -101,6 +101,20 @@ class Imagenes
 
     }
 
+    public static function getUltimasTresImagenes(){
+        $conn = Portal::getConexion();
+        $sql = "select DISTINCT propiedad_id,ruta from imagenes GROUP BY propiedad_id order by id_img desc limit 0,3";
+        $rs = mysqli_query($conn,$sql);
+        $arraylist=null;
+        while ($row=mysqli_fetch_array($rs,MYSQLI_BOTH)){
+            $objImagenes = new Imagenes();
+            $objImagenes->setPropiedadId($row['propiedad_id']);
+            $objImagenes->setRuta($row['ruta']);
+            $arraylist[] = $objImagenes;
+        }
+        return $arraylist;
+    }
+
     
 
 }

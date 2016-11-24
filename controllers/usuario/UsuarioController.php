@@ -30,7 +30,7 @@ switch ($accion) {
                 echo "<script>window.location.href='../../vistas/propietario/propietario.php'</script>";
             }
             if ($perfil == 3) {
-
+                echo "<script>window.location.href='../../vistas/arrendatario/arrendatario.php'</script>";
             }
         } else {
             echo "<script>alert('Rut o clave incorrecta, intentelo de nuevo')</script>";
@@ -46,8 +46,8 @@ switch ($accion) {
         $telefono = $_POST['registerTelefono'];
         $email = $_POST['registerEmail'];
         $clave = $_POST['registerClave'];
-        $preguntaSecreta = $_POST['registerPregSecreta'];
-        $respuesta = $_POST['registerRespuesta'];
+        //$preguntaSecreta = $_POST['registerPregSecreta'];
+        //$respuesta = $_POST['registerRespuesta'];
         $perfil = $_POST['registerRadioPerfil'];
 
         $objUsuario = new Usuario();
@@ -58,9 +58,9 @@ switch ($accion) {
         $objUsuario->setEmail($email);
         $objUsuario->setClave($clave);
         $objUsuario->setIdPerfil($perfil);
-        $objUsuario->setPreguntaSecretaId($preguntaSecreta);
+        //$objUsuario->setPreguntaSecretaId($preguntaSecreta);
         $objUsuario->setEstado(0);
-        $objUsuario->setRespuestaSecreta($respuesta);
+        //$objUsuario->setRespuestaSecreta($respuesta);
         if ($objUsuario->save()) {
             echo "<script>alert('Registrado correctamente');</script>";
             echo "<script>window.location.href='../../vistas/index/index.php'</script>";

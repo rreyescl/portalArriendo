@@ -106,6 +106,23 @@ class Publicacion
         $this->id_propietario = $id_propietario;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getFechaPublicacion()
+    {
+        return $this->fecha_publicacion;
+    }
+
+    /**
+     * @param mixed $fecha_publicacion
+     */
+    public function setFechaPublicacion($fecha_publicacion)
+    {
+        $this->fecha_publicacion = $fecha_publicacion;
+    }
+
+
     public function save()
     {
         $conn = Portal::getConexion();
@@ -133,6 +150,24 @@ class Publicacion
         }
         return $arraylist;
 
+    }
+
+    public static function getUltimasTresPublicaciones(){
+        $conn = Portal::getConexion();
+        $sql = "select * from publicacion order by id_publicacion desc";
+        $rs = mysqli_query($conn,$sql);
+        $arraylist = null;
+        while($row=mysqli_fetch_array($rs,MYSQLI_BOTH)){
+            $objPublicacion = new Publicacion();
+            $objPublicacion->setIdPublicacion($row['id_publicacion']);
+            $objPublicacion->setIdPropietario($row['id_propietario']);
+            $objPublicacion->setIdPropiedad($row['id_propiedad']);
+            $objPublicacion->setDesde($row['desde']);
+            $objPublicacion->setHasta($row['hasta']);
+            $objPublicacion->setFechaPublicacion($row['fecha_publicacion']);
+            $arraylist[] = $objPublicacion;
+        }
+        return $arraylist;
     }
 
 
