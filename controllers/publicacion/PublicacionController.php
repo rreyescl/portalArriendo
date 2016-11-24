@@ -26,7 +26,7 @@ switch ($accion) {
         }
         break;
         
-    case 'cargarPublicacion':    
+    case 'cargarPublicacion':
         $id_publicacion = $_POST['id_publicacion'];
         $objPublicacion = new Publicacion();
         $objPublicacion = $objPublicacion->load($id_publicacion);

@@ -94,7 +94,14 @@ switch ($accion) {
         //print_r($_SESSION['usuario']);
 
         echo "<script>alert('Actualizado correctamente');</script>";
-        echo "<script>window.location.href='../../vistas/propietario/propietario.php'</script>";
+        if($objUsuario->getIdPerfil()==2){
+            echo "<script>window.location.href='../../vistas/propietario/propietario.php'</script>";
+        }
+
+        if($objUsuario->getIdPerfil()==3){
+            echo "<script>window.location.href='../../vistas/arrendatario/arrendatario.php'</script>";
+        }
+
         //actualizar
 
         break;

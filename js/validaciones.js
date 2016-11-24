@@ -1,4 +1,5 @@
 function cargarFrame(id) {
+console.log(id);
     var titulo = "";
     switch (id) {
         case 'mispropiedades':
@@ -21,6 +22,18 @@ function cargarFrame(id) {
             break;
         case 'misarriendos':
             document.getElementById("arriendos").style.display = "block";
+            document.getElementById("cuentaArrendatario").style.display = "none";
+
+            document.getElementById("publicacionesArrendatario").style.display = "none";
+            break;
+        case 'publicaciones':
+            document.getElementById("publicacionesArrendatario").style.display = "block";
+            break;
+        case 'micuentaArrendatario':
+            document.getElementById("cuentaArrendatario").style.display = "block";
+            document.getElementById("arriendos").style.display = "none";
+            document.getElementById("publicacionesArrendatario").style.display = "none";
+                break;
         default:
             break;
     }
@@ -95,6 +108,8 @@ function cargarPropiedad(id_propiedad) {
 }
 
 function revisarPublicacion(id_publicacion){
+
+
     
     var xmlhttp;
 
@@ -110,7 +125,12 @@ function revisarPublicacion(id_publicacion){
     }
     xmlhttp.open("POST", "../../controllers/publicacion/PublicacionController.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("id_publicacion=" + id_publicacion+"&accion=cargarPublicacion");
+
+
+
+        xmlhttp.send("id_publicacion=" + id_publicacion+"&accion=cargarPublicacion");
+
+
 }
 
 function eliminarPropiedad(propiedad_id){
