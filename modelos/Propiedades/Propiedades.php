@@ -66,7 +66,7 @@ class Propiedades
     $this->cantidad_habitaciones = $cantidad_habitaciones;
   }
 
-  public function getPropiedadesByPropietarioId($id_propietario){
+  public static function getPropiedadesByPropietarioId($id_propietario){
     $conn = Portal::getConexion();
     $sql = "select * from  propiedades where propietario_id = ".$id_propietario." order by id desc";
     $rs = mysqli_query($conn,$sql);
@@ -93,6 +93,26 @@ class Propiedades
     mysqli_query($conn,$sql);
     
     return mysqli_insert_id($conn);
+  }
+
+  public function load($id_propiedad){
+    $conn = Portal::getConexion();
+    $sql = "select * from propiedades where id=".$id_propiedad;
+    
+    $rs = mysqli_query($conn,$sql);
+    $objPropiedad=null;
+    while($row = mysqli_fetch_array($rs,MYSQLI_BOTH)){
+      $objPropiedad = new Propiedades();
+      $objPropiedad->setId($row['id']);
+      $objPropiedad->setPropietarioId($row['propietario_id']);
+      $objPropiedad->setDireccion($row['direccion']);
+      $objPropiedad->setDescripcion($row['descripcion']);
+      $objPropiedad->setTarifa($row['tarifa']);
+      $objPropiedad->setComunaId($row['comuna_id']);
+      $objPropiedad->setCantidadBanos($row['cantidad_banos']);
+      $objPropiedad->setCantidadHabitaciones($row['cantidad_habitaciones']);
+    }
+    return $objPropiedad;
   }
 }
 ?>

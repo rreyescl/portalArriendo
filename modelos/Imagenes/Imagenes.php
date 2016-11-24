@@ -58,8 +58,47 @@ class Imagenes
     public function save(){
         $conn = Portal::getConexion();
         $sql = "insert into imagenes values (0,'".$this->ruta."',".$this->propiedad_id.")";
-        echo $sql;
+
         mysqli_query($conn,$sql);        
+    }
+
+    public  function getUltimaImagenByPropiedad($propiedad_id){
+        $conn = Portal::getConexion();
+        $sql = "select * from imagenes where propiedad_id = ".$propiedad_id." order by id_img desc limit 0,1";
+      //  echo $sql;
+        $rs = mysqli_query($conn,$sql);
+
+        if($row = mysqli_fetch_array($rs,MYSQLI_BOTH)){
+            $objImagen = new Imagenes();
+            $objImagen->setIdImg($row['id_img']);
+            $objImagen->setRuta($row['ruta']);
+            $objImagen->setPropiedadId($row['propiedad_id']);
+        }else{
+            $objImagen = new Imagenes();
+            $objImagen->setRuta("/portalArriendo/portalArriendo/img/Imagen_no_disponible.jpg");
+        }
+        return $objImagen;
+
+
+    }
+
+    public  static function getImagenesByPropiedad($propiedad_id){
+        $conn = Portal::getConexion();
+        $sql = "select * from imagenes where propiedad_id = ".$propiedad_id." order by id_img desc";
+        //  echo $sql;
+        $rs = mysqli_query($conn,$sql);
+        $arraylist=null;
+        while($row = mysqli_fetch_array($rs,MYSQLI_BOTH)){
+            $objImagen = new Imagenes();
+            $objImagen->setIdImg($row['id_img']);
+            $objImagen->setRuta($row['ruta']);
+            $objImagen->setPropiedadId($row['propiedad_id']);
+            $arraylist[]=$objImagen;
+
+        }
+        return $arraylist;
+
+
     }
 
     

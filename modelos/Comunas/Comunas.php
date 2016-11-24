@@ -1,7 +1,5 @@
 <?php
-/**
-*
-*/
+require_once "../../Portal.php";
 class Comunas
 {
   private $id;
@@ -26,6 +24,21 @@ class Comunas
     }
     public function setIdRegion($id_region){
       $this->id_region = $id_region;
+    }
+
+    public static function getComunasByRegion($id_region){
+      $conn = Portal::getConexion();
+      $sql = "select * from comunas where id_region =".$id_region;
+      $rs = mysqli_query($conn,$sql);
+      $arraylist=null;
+      while($row = mysqli_fetch_array($rs,MYSQLI_BOTH)){
+        $objComunas = new Comunas();
+        $objComunas->setId($row['id']);
+        $objComunas->setNombre($row['nombre']);
+        $objComunas->setIdRegion($row['id_region']);
+        $arraylist[] = $objComunas;
+      }
+      return $arraylist;
     }
   }
   ?>

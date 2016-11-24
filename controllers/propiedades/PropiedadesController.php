@@ -15,7 +15,7 @@ switch ($accion) {
         $direccion = $_POST['guardarDireccion'];
         $descipcion = $_POST['guardarDescripcion'];
         $tarifa = $_POST['guardarTarifa'];
-        $cantidadBaÒos = $_POST['guardarBanos'];
+        $cantidadBanos = $_POST['guardarBanos'];
         $comuna_id = $_POST['guardarComuna'];
         $cantidadHabitaciones = $_POST['guadarHabitaciones'];
         $fotos = $_FILES['foto']['name'];
@@ -25,7 +25,7 @@ switch ($accion) {
         $objPropiedades->setDireccion($direccion);
         $objPropiedades->setDescripcion($descipcion);
         $objPropiedades->setTarifa($tarifa);
-        $objPropiedades->setCantidadBanos($cantidadBaÒos);
+        $objPropiedades->setCantidadBanos($cantidadBanos);
         $objPropiedades->setCantidadHabitaciones($cantidadHabitaciones);
         $objPropiedades->setComunaId($comuna_id);
         $objPropiedades->setPropietarioId($objPropietario->getId());
@@ -34,16 +34,54 @@ switch ($accion) {
             if ($_FILES['foto']['error'][$i] > 0) {
                 echo "Error: " . $_FILES['foto']['error'][$i] . "<br>";
             } else {
-                move_uploaded_file($_FILES['foto']['tmp_name'][$i], "../../img" . $_FILES['foto']['name'][$i]);
+                move_uploaded_file($_FILES['foto']['tmp_name'][$i], "../../img/" . $_FILES['foto']['name'][$i]);
                 $objImagenes->setPropiedadId($id_propiedad);
-                $objImagenes->setRuta("/portalArriendo/img/" . $_FILES['foto']['name'][$i]);
+                $objImagenes->setRuta("/portalArriendo/portalArriendo/img/" . $_FILES['foto']['name'][$i]);
                 $objImagenes->save();
             }
         }
         echo "<script>window.location.href='../../vistas/propietario/propietario.php'</script>";
         
         break;
-    case '':
+    case 'cargarPropiedad':
+        $objPropiedades = new Propiedades();
+        $id_propiedad = $_POST['id_propiedad'];
+        $objPropiedades = $objPropiedades->load($id_propiedad);
+        $objImagenes = new Imagenes();
+
+        ?>
+        <div class="row">
+        <?php
+        foreach($objImagenes->getImagenesByPropiedad($id_propiedad) as $imagenes){
+            ?>
+            <img width="80px" height="80px" src="<?php echo $imagenes->getRuta()?>" /><br>
+            
+            <?php 
+        }
+        ?>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <?php echo $objPropiedades->getDescripcion()?>
+            </div>
+            <div class="col-sm-3">
+                <ul>
+                    <li>Tarifa: $<input type="number" value="<?php echo $objPropiedades->getTarifa()?>" id="editarTarifa" name="editarTarifa"></li>
+                    <li>Ba√±os: <input type="number" value="<?php echo $objPropiedades->getCantidadBanos()?>" id="editarBanos" name="editarBanos" /></li>
+                    <li>Habitaciones: <input type="number" value="<?php echo $objPropiedades->getCantidadHabitaciones() ?>" name="editarHabitaciones" id="editarHabitaciones"></li>
+                    <li>Direccion: <input type="text" value="<?php echo $objPropiedades->getDireccion()?>" name="editarDireccion" id="editarDireccion"/></li>
+                </ul>
+            </div>
+            <div class="col-sm-6">
+               <!-- <iframe src="http://mapcity.com/#t=1:a=<?php // echo $objPropiedades->getDireccion()?>" frameborder="0" style="border:0" allowfullscreen></iframe>-->
+
+
+            </div>
+
+        </div>
+
+
+        <?php
         break;
     default:
         break;
@@ -54,3 +92,4 @@ switch ($accion) {
 
 
 ?>
+

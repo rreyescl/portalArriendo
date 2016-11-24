@@ -63,8 +63,10 @@ switch ($accion) {
         $objUsuario->setRespuestaSecreta($respuesta);
         if ($objUsuario->save()) {
             echo "<script>alert('Registrado correctamente');</script>";
+            echo "<script>window.location.href='../../vistas/index/index.php'</script>";
         } else {
             echo "<script>alert('Error al registrarse');</script>";
+            echo "<script>window.location.href='../../vistas/index/index.php'</script>";
         } // guardar
 
         break;
