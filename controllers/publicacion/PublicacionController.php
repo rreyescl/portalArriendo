@@ -20,7 +20,6 @@ switch ($accion) {
         $objPublicacion->setIdPropiedad($id_propiedad);
         $objPublicacion->setIdPropietario($propietario_id);
 
-
         if ($objPublicacion->save() > 0) {
             echo "<script>alert('Publicación realizada!');</script>";
             echo "<script>window.location.href='../../vistas/propietario/propietario.php'</script>";

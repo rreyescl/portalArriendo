@@ -127,7 +127,8 @@ class Publicacion
     {
         $conn = Portal::getConexion();
         $sql = "insert into publicacion values (0,'" . $this->desde . "','" . $this->
-            hasta . "'," . $this->id_propiedad . "," . $this->id_propietario . ")";
+            hasta . "'," . $this->id_propiedad . "," . $this->id_propietario . ",current_timestamp)";
+            echo $sql;
         $rs = mysqli_query($conn, $sql);
         return mysqli_insert_id($conn);
     }
