@@ -36,6 +36,10 @@ include "../../modelos/Imagenes/Imagenes.php";
                 if(count(Publicacion::getPublicaciones()) > 0){
                     foreach (Publicacion::getPublicaciones() as $objPublicacion){
                         $publicacionPropiedad = $objPropiedades->load($objPublicacion->getIdPropiedad());
+                        echo "<pre>";
+                        print_r($objPublicacion);
+                        echo "</pre>";
+                        
                         $publicacionImagenPropiedad = $objImagenes->getUltimaImagenByPropiedad($publicacionPropiedad->getId());
                         ?>
                         <a href="#" class="list-group-item col-sm-12">
@@ -49,7 +53,7 @@ include "../../modelos/Imagenes/Imagenes.php";
                         <?php
                     }
                 }else{
-                    echo "No tiene publicaciones <br>";
+                    echo "<center>No tiene publicaciones</center> <br>";
                 }
 
                 ?>

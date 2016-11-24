@@ -45,23 +45,27 @@ include "../../modelos/Imagenes/Imagenes.php";
 				</ol>
 				<div class="carousel-inner">
                     <?php
-                    $i=0;
-                    foreach (Imagenes::getUltimasTresImagenes() as $objImagen){
-                        $active ="";
-                        if($i==0){
-                            $active ="active";
-                        }?>
+$i = 0;
+if (count(Imagenes::getUltimasTresImagenes()) > 0) {
+
+    foreach (Imagenes::getUltimasTresImagenes() as $objImagen) {
+        $active = "";
+        if ($i == 0) {
+            $active = "active";
+        } ?>
                         <div class="item">
-                            <img width="1600px" height="500px" alt="Carousel Bootstrap First" src="<?php echo $objImagen->getRuta()?>" />
+                            <img width="1600px" height="500px" alt="Carousel Bootstrap First" src="<?php echo
+$objImagen->getRuta() ?>" />
                             <div class="carousel-caption">
                                 
                             </div>
                         </div>
                     <?php
-                        $i++;
-                    }
+        $i++;
+    }
+}
 
-                    ?>
+?>
 					<div class="item active">
 						<img width="1600px" height="500px" alt="Carousel Bootstrap First" src="http://www.hectour.cl/wp-content/uploads/2015/02/vina2.png" />
 						<div class="carousel-caption">

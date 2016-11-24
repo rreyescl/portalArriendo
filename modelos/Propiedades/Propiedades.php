@@ -117,10 +117,15 @@ class Propiedades
   
   public static function remove($id_propiedad){
     $conn = Portal::getConexion();
-    $sql = "delete from propiedades where id = ".$id_propiedad;
+    $arr =array("delete from propiedades where id = ".$id_propiedad,"delete from imagenes where propiedad_id =".$id_propiedad,"delete from publicacion where id_propiedad=".$id_propiedad);
+    
+    foreach($arr as $sql){
+        echo "<br>".$sql."<br>";
+        mysqli_query($conn,$sql);    
+    }
     
     
-    mysqli_query($conn,$sql);
+    
   }
 }
 ?>

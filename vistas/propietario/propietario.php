@@ -233,7 +233,7 @@ include "../../modelos/Publicacion/Publicacion.php";
                                         </div>
 
                                     </div>
-                                    <div class="form-group">
+                                    <!--<div class="form-group">
                                         <label class="control-label col-sm-2" for="tarifa">Disponibilidad:</label>
                                         <div class="col-sm-10">
                                             <input type="date" class="form-control" id="guardarDesde"
@@ -241,7 +241,7 @@ include "../../modelos/Publicacion/Publicacion.php";
                                             <input type="date" class="form-control" id="guardarHasta"
                                                    name="guadarHasta">
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </form>
                                 </button>
                             </div>
@@ -257,6 +257,7 @@ include "../../modelos/Publicacion/Publicacion.php";
             </div>
             <div id="publicaciones" style="display:none">
                 <?php
+               // echo "cantidad " . count(Publicacion::getPublicacionesByPropietario($objPropietario->getId()));
                 if(count(Publicacion::getPublicacionesByPropietario($objPropietario->getId())) > 0){
                     foreach (Publicacion::getPublicacionesByPropietario($objPropietario->getId()) as $objPublicacion){
                         $publicacionPropiedad = $objPropiedades->load($objPublicacion->getIdPropiedad());

@@ -170,7 +170,6 @@ class Publicacion
 
         }
         return $arraylist;
-
     }
 
     public static function getUltimasTresPublicaciones()

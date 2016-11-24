@@ -103,10 +103,35 @@ switch ($accion) {
             <div class="form-group">
                 <label class="control-label col-sm-2" for="Descripcion">Descripcion:</label>
                 <!--<div class="col-sm-10">-->
-                    <input type="text" class="form-control" id="editarDescripcion" name="editarDescripcion"/>
+                    <input type="text" class="form-control" id="editarDescripcion" name="editarDescripcion" value="<?php echo $objPropiedades->getDescripcion()?>"/>
+                <!--</div>-->
+                </div>
+                <div class="form-group">
+                <label class="control-label col-sm-2" for="Descripcion">Tarifa:</label>
+                <!--<div class="col-sm-10">-->
+                    <input type="text" class="form-control" id="editarTarifa" name="editarTarifa" value="<?php echo $objPropiedades->getTarifa()?>"/>
+                <!--</div>-->
+                </div>
+                <div class="form-group">
+                <label class="control-label col-sm-2" for="Descripcion">Baños:</label>
+                <!--<div class="col-sm-10">-->
+                    <input type="text" class="form-control" id="editarBanos" name="editarBanos" value="<?php echo $objPropiedades->getCantidadBanos()?>"/>
+                <!--</div>-->
+                </div>
+                <div class="form-group">
+                <label class="control-label col-sm-2" for="Descripcion">Habitaciones:</label>
+                <!--<div class="col-sm-10">-->
+                    <input type="text" class="form-control" id="editarHabitaciones" name="editarHabitaciones" value="<?php echo $objPropiedades->getCantidadHabitaciones()?>"/>
+                <!--</div>-->
+                </div>
+                <div class="form-group">
+                <label class="control-label col-sm-2" for="Descripcion">Dirección:</label>
+                <!--<div class="col-sm-10">-->
+                    <input type="text" class="form-control" id="editarDireccion" name="editarDireccion" value="<?php echo $objPropiedades->getDireccion()?>"/>
                 <!--</div>-->
                 </div>
             </form>
+            
                <!-- <ul>
                
                     <li> </li>
