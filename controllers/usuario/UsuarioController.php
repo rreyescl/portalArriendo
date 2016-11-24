@@ -34,7 +34,7 @@ switch ($accion) {
             }
         } else {
             echo "<script>alert('Rut o clave incorrecta, intentelo de nuevo')</script>";
-            //echo "<script>window.location.href='../../vistas/index/index.php';</script>";
+            echo "<script>window.location.href='../../vistas/index/index.php';</script>";
         }
         break;
     case "register":

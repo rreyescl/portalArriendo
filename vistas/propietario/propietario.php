@@ -77,7 +77,7 @@ include "../../modelos/Publicacion/Publicacion.php";
                                             class="btn btn-default col-sm-2"
                                             onclick="javascript:cargarPropiedad(<?php echo $objPropiedades->getId() ?>)">
                                         <span class="glyphicon glyphicon-pencil"> Editar</span></button>
-                                    <button type="button" class="btn btn-default col-sm-2" onclick="javascript:"><span
+                                    <button type="button" class="btn btn-default col-sm-2" onclick="javascript:eliminar"><span
                                             class="glyphicon glyphicon-remove" > Eliminar</span></button>
                                 </a>
 
