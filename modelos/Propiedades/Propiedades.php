@@ -114,5 +114,13 @@ class Propiedades
     }
     return $objPropiedad;
   }
+  
+  public static function remove($id_propiedad){
+    $conn = Portal::getConexion();
+    $sql = "delete from propiedades where id = ".$id_propiedad;
+    
+    
+    mysqli_query($conn,$sql);
+  }
 }
 ?>

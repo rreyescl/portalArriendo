@@ -4,8 +4,8 @@ include "../../modelos/Propiedades/Propiedades.php";
 include "../../modelos/Imagenes/Imagenes.php";
 include "../../modelos/Usuario/Usuario.php";
 
-if (isset($_POST['accion'])) {
-    $accion = $_POST['accion'];
+if (isset($_REQUEST['accion'])) {
+    $accion = $_REQUEST['accion'];
 }
 session_start();
 
@@ -127,6 +127,14 @@ switch ($accion) {
 
 
         <?php
+        break;
+        case 'eliminarPropiedad':
+        $id_propiedad = $_REQUEST['id_propiedad'];
+        Propiedades::remove($id_propiedad);
+        echo "<script>alert('Propiedad Eliminada')</script>";
+        echo "<script>window.location.href='../../vistas/propietario/propietario.php'</script>";
+        
+        
         break;
     default:
         break;

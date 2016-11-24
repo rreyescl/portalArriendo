@@ -112,3 +112,12 @@ function revisarPublicacion(id_publicacion){
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("id_publicacion=" + id_publicacion+"&accion=cargarPublicacion");
 }
+
+function eliminarPropiedad(propiedad_id){
+    
+    if(confirm("Esta seguro de eliminar esta propiedad?")){
+        window.location.href='../../controllers/Propiedades/PropiedadesController.php?id_propiedad='+propiedad_id+"&accion=eliminarPropiedad";    
+    }
+    
+    
+}
