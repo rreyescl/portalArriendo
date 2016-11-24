@@ -77,8 +77,8 @@ include "../../modelos/Publicacion/Publicacion.php";
                                             class="btn btn-default col-sm-2"
                                             onclick="javascript:cargarPropiedad(<?php echo $objPropiedades->getId() ?>)">
                                         <span class="glyphicon glyphicon-pencil"> Editar</span></button>
-                                    <button type="button" class="btn btn-default col-sm-2"><span
-                                            class="glyphicon glyphicon-remove"> Eliminar</span></button>
+                                    <button type="button" class="btn btn-default col-sm-2" onclick="javascript:"><span
+                                            class="glyphicon glyphicon-remove" > Eliminar</span></button>
                                 </a>
 
                                 <?php
@@ -99,7 +99,7 @@ include "../../modelos/Publicacion/Publicacion.php";
                                 <h4 class="modal-title"></h4>
                             </div>
                             <div class="modal-body" id="bodyPropiedad">
-                                <!---- asdasdasasd-->
+                                
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -150,8 +150,6 @@ include "../../modelos/Publicacion/Publicacion.php";
 
                     </div>
                 </div>
-
-
                 <div class="modal fade" id="modalAgregarPropiedad" role="dialog">
                     <div class="modal-dialog">
                         <!-- Modal content-->

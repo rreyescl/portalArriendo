@@ -126,19 +126,39 @@ class Publicacion
     public function save()
     {
         $conn = Portal::getConexion();
-        $sql = "insert into publicacion values (0,'" . $this->desde . "','" . $this->hasta . "'," . $this->id_propiedad . ",".$this->id_propietario.")";
+        $sql = "insert into publicacion values (0,'" . $this->desde . "','" . $this->
+            hasta . "'," . $this->id_propiedad . "," . $this->id_propietario . ")";
         $rs = mysqli_query($conn, $sql);
         return mysqli_insert_id($conn);
+    }
+
+    public function load($id_publicacion)
+    {
+        $conn = Portal::getConexion();
+        $sql = "select * from publicacion where id_publicacion=" . $id_publicacion;
+        $rs = mysqli_query($conn, $sql);
+        $objPublicacion = null;
+        if ($row = mysqli_fetch_array($rs, MYSQLI_BOTH)) {
+            $objPublicacion = new Publicacion();
+            $objPublicacion->setIdPublicacion($row['id_publicacion']);
+            $objPublicacion->setDesde($row['desde']);
+            $objPublicacion->setHasta($row['hasta']);
+            $objPublicacion->setIdPropiedad($row['id_propiedad']);
+            $objPublicacion->setIdPropietario($row['id_propietario']);
+            $objPublicacion->setFechaPublicacion($row['fecha_publicacion']);
+        }
+        return $objPublicacion;
     }
 
     public static function getPublicacionesByPropietario($id_propietario)
     {
         $conn = Portal::getConexion();
-        $sql = "select * from publicacion where id_propietario=".$id_propietario." order by id_publicacion desc";
+        $sql = "select * from publicacion where id_propietario=" . $id_propietario .
+            " order by id_publicacion desc";
         //echo $sql;
-        $rs = mysqli_query($conn,$sql);
-        $arraylist=null;
-        while($row = mysqli_fetch_array($rs,MYSQLI_BOTH)){
+        $rs = mysqli_query($conn, $sql);
+        $arraylist = null;
+        while ($row = mysqli_fetch_array($rs, MYSQLI_BOTH)) {
             $objPublicacion = new Publicacion();
             $objPublicacion->setIdPublicacion($row['id_publicacion']);
             $objPublicacion->setDesde($row['desde']);
@@ -152,12 +172,32 @@ class Publicacion
 
     }
 
-    public static function getUltimasTresPublicaciones(){
+    public static function getUltimasTresPublicaciones()
+    {
         $conn = Portal::getConexion();
         $sql = "select * from publicacion order by id_publicacion desc";
-        $rs = mysqli_query($conn,$sql);
+        $rs = mysqli_query($conn, $sql);
         $arraylist = null;
-        while($row=mysqli_fetch_array($rs,MYSQLI_BOTH)){
+        while ($row = mysqli_fetch_array($rs, MYSQLI_BOTH)) {
+            $objPublicacion = new Publicacion();
+            $objPublicacion->setIdPublicacion($row['id_publicacion']);
+            $objPublicacion->setIdPropietario($row['id_propietario']);
+            $objPublicacion->setIdPropiedad($row['id_propiedad']);
+            $objPublicacion->setDesde($row['desde']);
+            $objPublicacion->setHasta($row['hasta']);
+            $objPublicacion->setFechaPublicacion($row['fecha_publicacion']);
+            $arraylist[] = $objPublicacion;
+        }
+        return $arraylist;
+    }
+
+    public static function getPublicaciones()
+    {
+        $conn = Portal::getConexion();
+        $sql = "select * from publicacion order by id_publicacion desc";
+        $rs = mysqli_query($conn, $sql);
+        $arraylist = null;
+        while ($row = mysqli_fetch_array($rs, MYSQLI_BOTH)) {
             $objPublicacion = new Publicacion();
             $objPublicacion->setIdPublicacion($row['id_publicacion']);
             $objPublicacion->setIdPropietario($row['id_propietario']);
