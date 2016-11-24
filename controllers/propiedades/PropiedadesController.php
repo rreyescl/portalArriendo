@@ -52,24 +52,28 @@ switch ($accion) {
         ?>
         <div class="row">
         <?php
+        if(count($objImagenes->getImagenesByPropiedad($id_propiedad))>0){
         foreach($objImagenes->getImagenesByPropiedad($id_propiedad) as $imagenes){
             ?>
             <img width="80px" height="80px" src="<?php echo $imagenes->getRuta()?>" /><br>
             
             <?php 
         }
+        }else{
+            echo "<center><img src='/portalArriendo/portalArriendo/img/Imagen_no_disponible.jpg'</center>";
+        }
         ?>
         </div>
         <div class="row">
             <div class="col-sm-3">
-                <?php echo $objPropiedades->getDescripcion()?>
+                <label>Descripcion:<br /></label><?php echo $objPropiedades->getDescripcion()?>
             </div>
             <div class="col-sm-3">
                 <ul>
-                    <li>Tarifa: $<input type="number" value="<?php echo $objPropiedades->getTarifa()?>" id="editarTarifa" name="editarTarifa"></li>
-                    <li>Baños: <input type="number" value="<?php echo $objPropiedades->getCantidadBanos()?>" id="editarBanos" name="editarBanos" /></li>
-                    <li>Habitaciones: <input type="number" value="<?php echo $objPropiedades->getCantidadHabitaciones() ?>" name="editarHabitaciones" id="editarHabitaciones"></li>
-                    <li>Direccion: <input type="text" value="<?php echo $objPropiedades->getDireccion()?>" name="editarDireccion" id="editarDireccion"/></li>
+                    <li><label>Tarifa:</label> $<input type="number" value="<?php echo $objPropiedades->getTarifa()?>" id="editarTarifa" name="editarTarifa"></li>
+                    <li><label>Baños: </label><input type="number" value="<?php echo $objPropiedades->getCantidadBanos()?>" id="editarBanos" name="editarBanos" /></li>
+                    <li><label>Habitaciones: </label><input type="number" value="<?php echo $objPropiedades->getCantidadHabitaciones() ?>" name="editarHabitaciones" id="editarHabitaciones"></li>
+                    <li><label>Direccion: </label><input type="text" value="<?php echo $objPropiedades->getDireccion()?>" name="editarDireccion" id="editarDireccion"/></li>
                 </ul>
             </div>
             <div class="col-sm-6">

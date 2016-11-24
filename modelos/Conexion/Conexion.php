@@ -5,7 +5,7 @@ class Conexion
 {
     private $servidor = "localhost";
     private $usuario = "root";
-    private $clave = "asdf1234";
+    private $clave = "";
     private $bd = "portalArriendo";
 
     public function getServidor()

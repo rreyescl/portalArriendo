@@ -51,15 +51,10 @@ include "../../modelos/Imagenes/Imagenes.php";
                         if($i==0){
                             $active ="active";
                         }?>
-                        <div class="item <?php $active?>">
+                        <div class="item">
                             <img width="1600px" height="500px" alt="Carousel Bootstrap First" src="<?php echo $objImagen->getRuta()?>" />
                             <div class="carousel-caption">
-                                <h4>
-                                    First Thumbnail label
-                                </h4>
-                                <p>
-                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-                                </p>
+                                
                             </div>
                         </div>
                     <?php
@@ -70,12 +65,12 @@ include "../../modelos/Imagenes/Imagenes.php";
 					<div class="item active">
 						<img width="1600px" height="500px" alt="Carousel Bootstrap First" src="http://www.hectour.cl/wp-content/uploads/2015/02/vina2.png" />
 						<div class="carousel-caption">
-							<h4>
+							<!--<h4>
 								First Thumbnail label
 							</h4>
 							<p>
 								Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-							</p>
+							</p>-->
 						</div>
 					</div>
                         <!--<div class="item">
@@ -223,8 +218,8 @@ include "../../modelos/Imagenes/Imagenes.php";
 </div>
 </div>
 
-<footer class="container-fluid text-center">
-    <p>Footer Text</p>
+<footer class="container-fluid text-center" style="background-color: #101010;">
+    <p></p>
 </footer>
 </body>
 </html>
