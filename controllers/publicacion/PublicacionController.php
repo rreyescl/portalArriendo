@@ -81,7 +81,7 @@ switch ($accion) {
   </a>  
 </div>
 <div class="row">
-<div class="col-sm-6">
+<div class="col-sm-10">
 <br />
 <ul>
     <li><label>Descripción: </label><?php echo $objPropiedades->getDescripcion()?></li>
@@ -89,9 +89,10 @@ switch ($accion) {
     <li><label>Baños: </label><?php echo $objPropiedades->getCantidadBanos()?></li>
     <li><label>Habitaciones: </label><?php echo $objPropiedades->getCantidadHabitaciones() ?></li>
     <li><label>Dirección: </label><?php echo $objPropiedades->getDireccion()?></li>
+    <li><label>Fecha disponible:</label><?php echo "Desde ".$objPublicacion->getDesde()." Hasta ".$objPublicacion->getHasta()?></li>
 </ul>
 </div>
-<div class="col-sm-6">
+<div class="col-sm-2">
                                 
 </div>
 

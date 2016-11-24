@@ -19,7 +19,7 @@ include "../../modelos/Imagenes/Imagenes.php";
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="../publicaciones/">Publicaciones</a></li>
-                <li><a href="#">Contactenos</a></li>
+                
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#" data-toggle="modal" data-target="#myModal" style="background-color:  orange;color:white"><span
@@ -36,9 +36,9 @@ include "../../modelos/Imagenes/Imagenes.php";
                 if(count(Publicacion::getPublicaciones()) > 0){
                     foreach (Publicacion::getPublicaciones() as $objPublicacion){
                         $publicacionPropiedad = $objPropiedades->load($objPublicacion->getIdPropiedad());
-                        echo "<pre>";
-                        print_r($objPublicacion);
-                        echo "</pre>";
+                        //echo "<pre>";
+//                        print_r($objPublicacion);
+//                        echo "</pre>";
                         
                         $publicacionImagenPropiedad = $objImagenes->getUltimaImagenByPropiedad($publicacionPropiedad->getId());
                         ?>

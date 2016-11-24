@@ -51,9 +51,7 @@ include "../../modelos/Publicacion/Publicacion.php";
             <h3 id="titulo">
 
             </h3>
-            <div id="arriendos" style="display:none">
-                <span class="glyphicon glyphicon-plus-sign" data-toggle="modal" data-target="#modalAgregarPropiedad"
-                      style="cursor:pointer;">Agregar Propiedad</span>
+            <div id="arriendos" style="display:none">                
                 <div class="row">
                     <div class="list-group">
                         <?php
@@ -257,11 +255,17 @@ include "../../modelos/Publicacion/Publicacion.php";
                     </div>
                 </div>
             </div>
-            <div id="publicaciones" style="display:none">
+            <div id="publicaciones" style="display:block">
                 <?php
-                if(count(Publicacion::getPublicacionesByPropietario($objPropietario->getId())) > 0){
-                    foreach (Publicacion::getPublicacionesByPropietario($objPropietario->getId()) as $objPublicacion){
+                $objPropiedades = new Propiedades();
+                $objImagenes = new Imagenes();
+                if(count(Publicacion::getPublicaciones()) > 0){
+                    foreach (Publicacion::getPublicaciones() as $objPublicacion){
                         $publicacionPropiedad = $objPropiedades->load($objPublicacion->getIdPropiedad());
+                        //echo "<pre>";
+//                        print_r($objPublicacion);
+//                        echo "</pre>";
+                        
                         $publicacionImagenPropiedad = $objImagenes->getUltimaImagenByPropiedad($publicacionPropiedad->getId());
                         ?>
                         <a href="#" class="list-group-item col-sm-12">
@@ -269,13 +273,13 @@ include "../../modelos/Publicacion/Publicacion.php";
                                 <img width="40px" height="40px"
                                      src="<?php echo $publicacionImagenPropiedad->getRuta() ?> "/> <?php echo $publicacionPropiedad->getDescripcion() ?>
                             </div>
-                            <button type="button" class="btn btn-default col-sm-4" >
-                                <span class="glyphicon glyphicon-arrow-up"> Subir</span></button>
+                            <button type="button" class="btn btn-default col-sm-4" data-toggle="modal" data-target="#modalRevisionPublicacion" onclick="javascript:revisarPublicacion(<?php echo $objPublicacion->getIdPublicacion() ?>)">
+                                <span class="glyphicon glyphicon-search" > Revisar</span></button>
                         </a>
                         <?php
                     }
                 }else{
-                    echo "No tiene publicaciones <br>";
+                    echo "<center>No tiene publicaciones</center> <br>";
                 }
 
                 ?>

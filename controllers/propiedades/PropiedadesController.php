@@ -99,8 +99,10 @@ switch ($accion) {
         <div class="row">
             
             <div class="col-sm-6">
-            <form class="form-horizontal" method="post" action="../../controllers/propiedades/PropiedadesController.php" enctype="multipart/form-data">
+            <form id="editarPropiedad" class="form-horizontal" method="post" action="../../controllers/propiedades/PropiedadesController.php" enctype="multipart/form-data">
             <div class="form-group">
+            <input type="hidden" name="id_propiedad" value="<?php echo $id_propiedad ?>" />
+                <input type="hidden" name="accion" value="editarPropiedad" /> 
                 <label class="control-label col-sm-2" for="Descripcion">Descripcion:</label>
                 <!--<div class="col-sm-10">-->
                     <input type="text" class="form-control" id="editarDescripcion" name="editarDescripcion" value="<?php echo $objPropiedades->getDescripcion()?>"/>
@@ -159,6 +161,26 @@ switch ($accion) {
         echo "<script>alert('Propiedad Eliminada')</script>";
         echo "<script>window.location.href='../../vistas/propietario/propietario.php'</script>";
         
+        
+        break;
+        case 'editarPropiedad':
+        $id_propiedad = $_REQUEST['id_propiedad'];
+        $descripcion = $_REQUEST['editarDescripcion'];
+        $tarifa = $_REQUEST['editarTarifa'];
+        $banos = $_REQUEST['editarBanos'];
+        $habitaciones = $_REQUEST['editarHabitaciones'];
+        $direccion = $_REQUEST['editarDireccion'];
+        $objPropiedades = new Propiedades();
+        $objPropiedades->setId($id_propiedad);
+        $objPropiedades->setDescripcion($descripcion);
+        $objPropiedades->setTarifa($tarifa);
+        $objPropiedades->setCantidadBanos($banos);
+        $objPropiedades->setCantidadHabitaciones($habitaciones);
+        $objPropiedades->setDireccion($direccion);
+        
+        $objPropiedades->actualizar();
+        echo "<script>alert('Propiedad Actualizada')</script>";
+        echo "<script>window.location.href='../../vistas/propietario/propietario.php'</script>";
         
         break;
     default:

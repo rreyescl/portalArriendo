@@ -102,6 +102,7 @@ include "../../modelos/Publicacion/Publicacion.php";
                                 
                             </div>
                             <div class="modal-footer">
+                            <button type="button" class="btn btn-default" onclick="javascript:editarPropiedad()">Actualizar</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                             </div>
                         </div>

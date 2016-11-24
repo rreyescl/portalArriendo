@@ -117,7 +117,11 @@ function eliminarPropiedad(propiedad_id){
     
     if(confirm("Esta seguro de eliminar esta propiedad?")){
         window.location.href='../../controllers/Propiedades/PropiedadesController.php?id_propiedad='+propiedad_id+"&accion=eliminarPropiedad";    
-    }
+    }   
     
+}
+
+function editarPropiedad(propiedad_id){
+    document.getElementById("editarPropiedad").submit();
     
 }

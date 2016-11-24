@@ -37,7 +37,7 @@ if(!isset($objPropietario)){
             <ul class="nav navbar-nav">
                 <!--<li class="active"><a href="#">Home</a></li>-->
                 <!--<li><a href="#">About</a></li>-->
-                <li><a href="#">Todas las publicaciones</a></li>
+                
                 <li><a href="#"></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
