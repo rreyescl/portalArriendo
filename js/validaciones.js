@@ -1,5 +1,5 @@
 function cargarFrame(id) {
-console.log(id);
+    console.log(id);
     var titulo = "";
     switch (id) {
         case 'mispropiedades':
@@ -33,7 +33,7 @@ console.log(id);
             document.getElementById("cuentaArrendatario").style.display = "block";
             document.getElementById("arriendos").style.display = "none";
             document.getElementById("publicacionesArrendatario").style.display = "none";
-                break;
+            break;
         default:
             break;
     }
@@ -62,7 +62,7 @@ function agregarFotos() {
 function guardarPropiedad() {
     document.getElementById("agregarPropiedadForm").submit();
 }
-function validarPublicacion(){
+function validarPublicacion() {
     document.getElementById("formPublicacion").submit();
 }
 
@@ -104,13 +104,10 @@ function cargarPropiedad(id_propiedad) {
     }
     xmlhttp.open("POST", "../../controllers/Propiedades/PropiedadesController.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("id_propiedad=" + id_propiedad+"&accion=cargarPropiedad");
+    xmlhttp.send("id_propiedad=" + id_propiedad + "&accion=cargarPropiedad");
 }
 
-function revisarPublicacion(id_publicacion){
-
-
-    
+function revisarPublicacion(id_publicacion) {
     var xmlhttp;
 
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -125,23 +122,20 @@ function revisarPublicacion(id_publicacion){
     }
     xmlhttp.open("POST", "../../controllers/publicacion/PublicacionController.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-
-
-        xmlhttp.send("id_publicacion=" + id_publicacion+"&accion=cargarPublicacion");
+    xmlhttp.send("id_publicacion=" + id_publicacion + "&accion=cargarPublicacion");
 
 
 }
 
-function eliminarPropiedad(propiedad_id){
-    
-    if(confirm("Esta seguro de eliminar esta propiedad?")){
-        window.location.href='../../controllers/Propiedades/PropiedadesController.php?id_propiedad='+propiedad_id+"&accion=eliminarPropiedad";    
-    }   
-    
+function eliminarPropiedad(propiedad_id) {
+
+    if (confirm("Esta seguro de eliminar esta propiedad?")) {
+        window.location.href = '../../controllers/Propiedades/PropiedadesController.php?id_propiedad=' + propiedad_id + "&accion=eliminarPropiedad";
+    }
+
 }
 
-function editarPropiedad(propiedad_id){
+function editarPropiedad(propiedad_id) {
     document.getElementById("editarPropiedad").submit();
-    
+
 }

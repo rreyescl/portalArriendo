@@ -139,7 +139,7 @@ ini_set("display_errors", 1);
                                 <?php
                             }
                         } else {
-                            echo "<br>No posee propiedades agregadas";
+                            //echo "<br>No posee propiedades agregadas";
                         }
                         ?>
                     </div>

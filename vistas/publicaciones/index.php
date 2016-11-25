@@ -29,7 +29,7 @@ include "../../modelos/Imagenes/Imagenes.php";
     </div>
 </nav>
 <div class="row">
-    <input  type="text" id="vistaArrendatario" value="">
+
 <div id="publicaciones" style="display:block">
                 <?php
                 $objPropiedades = new Propiedades();
@@ -48,7 +48,7 @@ include "../../modelos/Imagenes/Imagenes.php";
                                 <img width="40px" height="40px"
                                      src="<?php echo $publicacionImagenPropiedad->getRuta() ?> "/> <?php echo $publicacionPropiedad->getDescripcion() ?>
                             </div>
-                            <button type="button" class="btn btn-default col-sm-4" data-toggle="modal" data-target="#modalRevisionPublicacion" onclick="javascript:revisarPublicacion(<?php echo $objPublicacion->getIdPublicacion() ?>);document.getElementById("vistaArrendatario").value="arrendatario">
+                            <button type="button" class="btn btn-default col-sm-4" data-toggle="modal" data-target="#modalRevisionPublicacion" onclick="javascript:revisarPublicacion(<?php echo $objPublicacion->getIdPublicacion() ?>)">
                                 <span class="glyphicon glyphicon-search" > Revisar</span></button>
                         </a>
                         <?php
