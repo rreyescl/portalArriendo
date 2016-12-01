@@ -4,6 +4,7 @@ include "../../modelos/Region/Region.php";
 include "../../modelos/Propiedades/Propiedades.php";
 include "../../modelos/Imagenes/Imagenes.php";
 include "../../modelos/Publicacion/Publicacion.php";
+include "../../modelos/Reservas/Reservas.php";
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 ?>
@@ -68,7 +69,7 @@ ini_set("display_errors", 1);
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default">Reservar</button>
+                            <button id="reservar" type="button" class="btn btn-default" onclick="javascript:reservar(<?php echo $objArrendatario->getId() ?>)">Reservar</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                         </div>
                     </div>
@@ -112,10 +113,12 @@ ini_set("display_errors", 1);
                     <div class="list-group">
                         <?php
                         $objImagenes = null;
-                        if (count(Propiedades::getPropiedadesByPropietarioId($objArrendatario->getId())) > 0) {
-                            foreach (Propiedades::getPropiedadesByPropietarioId($objArrendatario->getId()) as $objPropiedades) {
-                                //$id = $objPropiedades->getId();
-                                //echo "id -> ". $id;
+                        if (count(Reservas::getReservasByArrendatarioId($objArrendatario->getId())) > 0) {
+
+                            foreach (Reservas::getReservasByArrendatarioId($objArrendatario->getId()) as $objReserva) {
+                                $objPropiedades = new Propiedades();
+                                $objPropiedades = $objPropiedades->load($objReserva->getIdPropiedad());
+
                                 $objImagenes = new Imagenes();
                                 $objImagenes = $objImagenes->getUltimaImagenByPropiedad($objPropiedades->getId());
                                 ?>
@@ -123,19 +126,20 @@ ini_set("display_errors", 1);
                                     <div class="col-sm-6">
                                         <img width="40px" height="40px"
                                              src="<?php echo $objImagenes->getRuta() ?> "/> <?php echo $objPropiedades->getDescripcion() ?>
-                                    </div>
-                                    <button data-toggle="modal" data-target="#modalPublicarPropiedad" type="button"
-                                            class="btn btn-default col-sm-2"
-                                            onclick="document.getElementById('propiedadAPublicar').value='<?php echo $objPropiedades->getId() ?>'">
-                                        <span class="glyphicon glyphicon-ok"> Publicar</span></button>
-                                    <button data-toggle="modal" data-target="#modalEditarPropiedad" type="button"
-                                            class="btn btn-default col-sm-2"
-                                            onclick="javascript:cargarPropiedad(<?php echo $objPropiedades->getId() ?>)">
-                                        <span class="glyphicon glyphicon-pencil"> Editar</span></button>
-                                    <button type="button" class="btn btn-default col-sm-2"><span
-                                            class="glyphicon glyphicon-remove"> Eliminar</span></button>
-                                </a>
 
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="radio" name="calificacion" id="calificacion1" value="1">1
+                                        <input type="radio" name="calificacion" id="calificacion2" value="2">2
+                                        <input type="radio" name="calificacion" id="calificacion3" value="3">3
+                                        <input type="radio" name="calificacion" id="calificacion4" value="4">4
+                                        <input type="radio" name="calificacion" id="calificacion5" value="5">5
+                                        <input type="radio" name="calificacion" id="calificacion6" value="6">6
+                                        <input type="radio" name="calificacion" id="calificacion7" value="7">7
+                                    </div>
+                                    <button type="button" class="btn btn-default col-sm-2"><span
+                                            class="glyphicon glyphicon-ok" onclick="javascript:calificar(<?php echo $objPropiedades->getId()?>)">Calificar</span></button>
+                                </a>
                                 <?php
                             }
                         } else {

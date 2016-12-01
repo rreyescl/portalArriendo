@@ -1,5 +1,6 @@
 <?php
 require_once "../../Portal.php";
+
 class Propiedades
 {
     private $id;
@@ -15,66 +16,82 @@ class Propiedades
     {
 
     }
+
     public function getId()
     {
         return $this->id;
     }
+
     public function setId($id)
     {
         $this->id = $id;
     }
+
     public function getPropietarioId()
     {
         return $this->propietario_id;
     }
+
     public function setPropietarioId($propietario_id)
     {
         $this->propietario_id = $propietario_id;
     }
+
     public function getDireccion()
     {
         return $this->direccion;
     }
+
     public function setDireccion($direccion)
     {
         $this->direccion = $direccion;
     }
+
     public function getDescripcion()
     {
         return $this->descripcion;
     }
+
     public function setDescripcion($descripcion)
     {
         $this->descripcion = $descripcion;
     }
+
     public function getTarifa()
     {
         return $this->tarifa;
     }
+
     public function setTarifa($tarifa)
     {
         $this->tarifa = $tarifa;
     }
+
     public function getComunaId()
     {
         return $this->comuna_id;
     }
+
     public function setComunaId($comuna_id)
     {
         $this->comuna_id = $comuna_id;
     }
+
     public function getCantidadBanos()
     {
         return $this->cantidad_baños;
     }
+
     public function setCantidadBanos($cantidad_baños)
     {
         $this->cantidad_baños = $cantidad_baños;
     }
+
     public function getCantidadHabitaciones()
     {
         return $this->cantidad_habitaciones;
     }
+
     public function setCantidadHabitaciones($cantidad_habitaciones)
     {
         $this->cantidad_habitaciones = $cantidad_habitaciones;
@@ -119,7 +136,6 @@ class Propiedades
     {
         $conn = Portal::getConexion();
         $sql = "select * from propiedades where id=" . $id_propiedad;
-
         $rs = mysqli_query($conn, $sql);
         $objPropiedad = null;
         while ($row = mysqli_fetch_array($rs, MYSQLI_BOTH)) {
@@ -162,5 +178,22 @@ class Propiedades
         mysqli_query($conn, $sql);
 
     }
+
+    public function calcularCalificacion($propiedad_id)
+    {
+        $conn = Portal::getConexion();
+        $sql = "select (sum(nota)/count(*)) as promedio from calificacion where propiedad_id = " . $propiedad_id;
+        //echo $sql;
+        $rs = mysqli_query($conn, $sql);
+        $resultado = 0;
+        if ($row = mysqli_fetch_array($rs, MYSQLI_BOTH)) {
+            if ($row['promedio']!=null) {
+                $resultado = $row['promedio'];
+            }
+        }
+        return number_format($resultado, 2, ",", ".");
+
+    }
 }
+
 ?>

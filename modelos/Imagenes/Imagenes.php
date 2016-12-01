@@ -65,7 +65,7 @@ class Imagenes
     public  function getUltimaImagenByPropiedad($propiedad_id){
         $conn = Portal::getConexion();
         $sql = "select * from imagenes where propiedad_id = ".$propiedad_id." order by id_img desc limit 0,1";
-      //  echo $sql;
+        
         $rs = mysqli_query($conn,$sql);
 
         if($row = mysqli_fetch_array($rs,MYSQLI_BOTH)){

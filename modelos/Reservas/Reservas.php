@@ -1,12 +1,10 @@
 <?php
-/**
-*
-*/
+require_once "../../Portal.php";
 class Reservas
 {
   private $id;
   private $id_arrendatario;
-  private $id_habitacion;
+  private $id_propiedad;
   private $desde;
   private $hasta;
 
@@ -26,12 +24,7 @@ class Reservas
   public function setIdArrendatario($id_arrendatario){
     $this->id_arrendatario = $id_arrendatario;
   }
-  public function getIdHabitacion(){
-    return $this->id_habitacion;
-  }
-  public function setIdHabitacion($id_habitacion){
-    $this->id_habitacion = $id_habitacion;
-  }
+
   public function getDesde(){
     return $this->desde;
   }
@@ -45,6 +38,47 @@ class Reservas
   public function setHasta($hasta){
     $this->hasta = $hasta;
   }
+
+  public function getIdPropiedad()
+  {
+    return $this->id_propiedad;
+  }
+
+
+  public function setIdPropiedad($id_propiedad)
+  {
+    $this->id_propiedad = $id_propiedad;
+  }
+
+  public function save(){
+    $conn = Portal::getConexion();
+    $sql = "insert into reservas values (0,".$this->id_arrendatario.",".$this->id_propiedad.",'".$this->desde."','".$this->hasta."')";
+    //echo $sql;
+    //exit;
+    $rs = mysqli_query($conn,$sql);
+    echo "reservada";
+  }
+
+  public static function getReservasByArrendatarioId($id_arrendatario)
+  {
+    $conn = Portal::getConexion();
+    $sql = "select * from  reservas where id_arrendatario = " . $id_arrendatario .
+        " order by id desc";
+   
+    $rs = mysqli_query($conn, $sql);
+    $arraylist = null;
+    while ($row = mysqli_fetch_array($rs,MYSQLI_BOTH)) {
+      $objReservas = new Reservas();
+      $objReservas->setId($row['id']);
+      $objReservas->setIdArrendatario($row['id_arrendatario']);
+      $objReservas->setIdPropiedad($row['id_propiedad']);
+      $objReservas->setDesde($row['desde']);
+      $objReservas->setHasta($row['hasta']);
+      $arraylist[] = $objReservas;
+    }
+    return $arraylist;
+  }
+
 
 }
 
