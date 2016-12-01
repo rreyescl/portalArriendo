@@ -47,8 +47,14 @@ class Calificacion
     public function save(){
         $conn = Portal::getConexion();
         $sql = "insert calificacion values (0,".$this->propiedad_id.",".$this->nota.")";
-        $rs = mysqli_query($conn,$sql);
         
+        $rs = mysqli_query($conn,$sql);
+        echo "Calificada";
+    }
+
+    public static function validarCalificacion($arrendatario_id,$propiedad_id){
+        $conn = Portal::getConexion();
+        //$sql = "select * from  reservas "
     }
 
 

@@ -128,8 +128,9 @@ function revisarPublicacion(id_publicacion) {
 }
 
 function calificar(propiedad_id){
-    var xmlhttp;
 
+    var xmlhttp;
+    var nota = document.getElementById("notaSeleccionada_"+propiedad_id).value;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp = new XMLHttpRequest();
     } else {// code for IE6, IE5
@@ -137,12 +138,12 @@ function calificar(propiedad_id){
     }
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            document.getElementById("divPublicacion").innerHTML = xmlhttp.responseText;
+            alert(xmlhttp.responseText);
         }
     }
     xmlhttp.open("POST", "../../controllers/calificacion/CalificacionController.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("propiedad_id=" + propiedad_id + "&accion=calificarPropiedad");
+    xmlhttp.send("propiedad_id=" + propiedad_id + "&nota="+nota+"&accion=calificarPropiedad");
 }
 
 function eliminarPropiedad(propiedad_id) {
@@ -150,6 +151,12 @@ function eliminarPropiedad(propiedad_id) {
     if (confirm("Esta seguro de eliminar esta propiedad?")) {
         window.location.href = '../../controllers/Propiedades/PropiedadesController.php?id_propiedad=' + propiedad_id + "&accion=eliminarPropiedad";
     }
+
+}
+
+function setearNota(nota,id_propiedad){
+    document.getElementById("notaSeleccionada_"+id_propiedad).value=nota;
+
 
 }
 

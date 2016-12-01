@@ -126,19 +126,20 @@ ini_set("display_errors", 1);
                                     <div class="col-sm-6">
                                         <img width="40px" height="40px"
                                              src="<?php echo $objImagenes->getRuta() ?> "/> <?php echo $objPropiedades->getDescripcion() ?>
-
                                     </div>
                                     <div class="col-sm-4">
-                                        <input type="radio" name="calificacion" id="calificacion1" value="1">1
-                                        <input type="radio" name="calificacion" id="calificacion2" value="2">2
-                                        <input type="radio" name="calificacion" id="calificacion3" value="3">3
-                                        <input type="radio" name="calificacion" id="calificacion4" value="4">4
-                                        <input type="radio" name="calificacion" id="calificacion5" value="5">5
-                                        <input type="radio" name="calificacion" id="calificacion6" value="6">6
-                                        <input type="radio" name="calificacion" id="calificacion7" value="7">7
+                                        <input type="hidden" id="notaSeleccionada_<?php echo $objPropiedades->getId()?>" />
+                                        <label>Seleccione valoración:</label>
+                                        <input onclick="javascript:setearNota(1,<?php echo $objPropiedades->getId()?>)"  type="radio" name="calificacion" id="calificacion1" value="1">1
+                                        <input onclick="javascript:setearNota(2,<?php echo $objPropiedades->getId()?>)"  type="radio" name="calificacion" id="calificacion2" value="2">2
+                                        <input onclick="javascript:setearNota(3,<?php echo $objPropiedades->getId()?>)"  type="radio" name="calificacion" id="calificacion3" value="3">3
+                                        <input onclick="javascript:setearNota(4,<?php echo $objPropiedades->getId()?>)"  type="radio" name="calificacion" id="calificacion4" value="4">4
+                                        <input onclick="javascript:setearNota(5,<?php echo $objPropiedades->getId()?>)"  type="radio" name="calificacion" id="calificacion5" value="5">5
+                                        <input onclick="javascript:setearNota(6,<?php echo $objPropiedades->getId()?>)"  type="radio" name="calificacion" id="calificacion6" value="6">6
+                                        <input onclick="javascript:setearNota(7,<?php echo $objPropiedades->getId()?>)"  type="radio" name="calificacion" id="calificacion7" value="7">7
                                     </div>
-                                    <button type="button" class="btn btn-default col-sm-2"><span
-                                            class="glyphicon glyphicon-ok" onclick="javascript:calificar(<?php echo $objPropiedades->getId()?>)">Calificar</span></button>
+                                    <button onclick="javascript:calificar(<?php echo $objPropiedades->getId()?>)" type="button" class="btn btn-default col-sm-2"><span
+                                            class="glyphicon glyphicon-ok" >Calificar</span></button>
                                 </a>
                                 <?php
                             }

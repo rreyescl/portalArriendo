@@ -8,7 +8,8 @@ switch ($accion){
         $objCalificacion = new Calificacion();
         $objCalificacion->setPropiedadId($_POST['propiedad_id']);
         $objCalificacion->setNota($_POST['nota']);
-        
+        $objCalificacion->save();
+
         break;
     default:
         break;
