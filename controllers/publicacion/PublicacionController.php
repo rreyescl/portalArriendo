@@ -25,7 +25,7 @@ switch ($accion) {
             echo "<script>window.location.href='../../vistas/propietario/propietario.php'</script>";
         }
         break;
-        
+
     case 'cargarPublicacion':
         $id_publicacion = $_POST['id_publicacion'];
         $objPublicacion = new Publicacion();
@@ -35,8 +35,8 @@ switch ($accion) {
         $objImagenes = new Imagenes();
         $imagenes = $objImagenes->getImagenesByPropiedad($objPublicacion->getIdPropiedad());
         //echo "cantidad imagenes".count($imagenes);
-        
-        
+
+
         ?>
         <div id="myCarousel" class="carousel slide">
   <!-- Indicators -->
@@ -59,18 +59,18 @@ switch ($accion) {
     ?>
     <div class="item <?php echo $active ?>">
       <center><img width="500px" height="500px" src="<?php echo $objImagenes->getRuta()?>" class="img-responsive" /></center>
-      <div class="container">   
-      <div class="carousel-caption"></div>     
+      <div class="container">
+      <div class="carousel-caption"></div>
       </div>
     </div>
         <?php
-        $i++; 
-        } 
+        $i++;
+        }
         }else{
             ?><center><img width="500px" height="500px" src="/portalArriendo/portalArriendo/img/Imagen_no_disponible.jpg" class="img-responsive"></center><?php
         }
         ?>
-    
+
   </div>
   <!-- Controls -->
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -78,15 +78,15 @@ switch ($accion) {
   </a>
   <a class="right carousel-control" href="#myCarousel" data-slide="next">
     <span class="icon-next"></span>
-  </a>  
+  </a>
 </div>
 <div class="row">
 <div class="col-sm-10">
 <br />
-    <input type="text" id="idpropiedad" value="<?php echo $objPropiedades->getId()?>"/>
-    <input type="text" id="idpublicacion" value="<?php echo $objPublicacion->getIdPublicacion()?>" />
-    <input type="date" id="disponibilidadDesde" value="<?php echo $objPublicacion->getDesde()?>" /><br>
-    <input type="date" id="disponibilidadHasta" value="<?php echo $objPublicacion->getHasta()?>" />
+    <input type="hidden" id="idpropiedad" value="<?php echo $objPropiedades->getId()?>"/>
+    <input type="hidden" id="idpublicacion" value="<?php echo $objPublicacion->getIdPublicacion()?>" />
+    <input type="hidden" id="disponibilidadDesde" value="<?php echo $objPublicacion->getDesde()?>" /><br>
+    <input type="hidden" id="disponibilidadHasta" value="<?php echo $objPublicacion->getHasta()?>" />
 
 <ul>
     <li><label>Descripción: </label><?php echo $objPropiedades->getDescripcion()?></li>
@@ -95,18 +95,18 @@ switch ($accion) {
     <li><label>Habitaciones: </label><?php echo $objPropiedades->getCantidadHabitaciones() ?></li>
     <li><label>Dirección: </label><?php echo $objPropiedades->getDireccion()?></li>
     <li><label>Fecha disponible:</label><?php echo "Desde ".$objPublicacion->getDesde()." Hasta ".$objPublicacion->getHasta()?></li>
-    <li><label>Calificación: <?php $objPropiedades->calcularCalificacion($objPropiedades->getId()) ?>/7 </label></li>
+    <li><label>Calificación: <?php echo $objPropiedades->calcularCalificacion($objPropiedades->getId())?>/7 </label></li>
 </ul>
     <label>Desde <input type="date" name="reservaDesde_<?php echo $objPublicacion->getIdPublicacion()?>" id="reservaDesde_<?php echo $objPublicacion->getIdPublicacion()?>" /></label>
     <label>Hasta <input type="date" name="reservaHasta_<?php echo $objPublicacion->getIdPublicacion()?>" id="reservaHasta_<?php echo $objPublicacion->getIdPublicacion()?>" /></label>
 </div>
 <div class="col-sm-2">
-                                
+
 </div>
 
 </div>
 <!-- /.carousel -->
-        
+
         <?php
         break;
     default:

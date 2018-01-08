@@ -54,7 +54,7 @@ class Calificacion
 
     public static function validarCalificacion($arrendatario_id,$propiedad_id){
         $conn = Portal::getConexion();
-        //$sql = "select * from  reservas "
+        //$sql = "select * from  calificacion "
     }
 
 
